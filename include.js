@@ -26,7 +26,10 @@
     "TreeModel.js",
   ].map(function (x) { return 'lib/'+x;});
 
-  var model = [ ].map(function (x) { return 'model/'+x;});
+  var model = [ 
+    "actor.js",
+    "map.js",
+    ].map(function (x) { return 'model/'+x;});
 
   var urls = lib.concat(model);
 

@@ -13,8 +13,30 @@
         camera.position.set(.83, .37, 2.27);
 
         axis = new THREE.AxisHelper(.5);
-        axis.rotation = new THREE.Vector3(.5, 0, 0);
+        axis.matrixAutoUpdate = false;
+        axis.matrix.identity();
+        axis.matrix.setPosition(new THREE.Vector3(.1, .1, .1));
+        // axis.matrix.rotateY(.2);
+
+        var newX = new THREE.Vector3(.707, .707, 0),
+            newY = new THREE.Vector3(-.707, .707, 0),
+            newZ = new THREE.Vector3(0, 0, 1);
+
+        var te = axis.matrix.elements;
+        te[0] = newX.x;
+        te[1] = newX.y;
+        te[2] = newX.z;
+
+        te[4] = newY.x;
+        te[5] = newY.y;
+        te[6] = newY.z;
+
+        te[8] = newZ.x;
+        te[9] = newZ.y;
+        te[10] = newZ.z;
+
         scene.add(axis);
+
       });
     </script>
   </body>
