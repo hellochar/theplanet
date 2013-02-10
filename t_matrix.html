@@ -10,11 +10,11 @@
     <script>
       window.onFinish.push(function() {
         setupLights();
+        camera.position.set(.83, .37, 2.27);
 
-        arrow = new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(20, 0, 0), 20);
-        scene.add(arrow);
-        arrow.add(new THREE.AxisHelper(2));
-
+        axis = new THREE.AxisHelper(.5);
+        axis.rotation = new THREE.Vector3(.5, 0, 0);
+        scene.add(axis);
       });
     </script>
   </body>

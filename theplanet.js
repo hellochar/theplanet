@@ -88,20 +88,30 @@ function init() {
 
 //pos: Vector3 of unit length representing where it is on the sphere
 //forward: Vector3 of unit length representing where it's facing
-// function Entity(pos, forward) {
-//   this.pos = pos; //
-//   this.forward = forward;
-//   var left = new THREE.Vector3().cross(pos, forward);
-// 
-//   this.mesh = new THREE.Mesh(new THREE.CubeGeometry(.1, .1, .1), new THREE.MeshNormalMaterial());
-//   scene.add(this.mesh);
-// 
-//   this.update();
-// }
-// Entity.prototype.update = function() {
-//   this.mesh.position = map.onTerrain(this.pos);
-//   this.mesh.rotation = 
-// }
+function Entity(pos, forward) {
+  this.pos = pos; // y
+  this.forward = forward; //x
+  this.right = new THREE.Vector3().cross(forward, pos);
+
+  this.model = new THREE.Object3D();
+  (function() {
+    var size = .1;
+    var cube = new THREE.Mesh(new THREE.CubeGeometry(size, size, size), new THREE.MeshNormalMaterial());
+    cube.position = new THREE.Vector3(0, size/2, 0);
+    this.model.add(cube);
+  })();
+  scene.add(this.model);
+
+  this.update();
+}
+Entity.prototype.update = function() {
+  this.mesh.position = map.onTerrain(this.pos);
+  // this.mesh.rotation = 
+}
+Entity.prototype.turnLeft = function (rad) {
+}
+Entity.prototype.goForward = function (amt) {
+}
 
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
