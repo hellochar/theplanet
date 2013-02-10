@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>face test</title>
+    <link rel='stylesheet' href='style.css'>
+  </head>
+  <body>
+    <script src="include.js"></script>
+    <script src="t_setup.js"></script>
+
+    <script>
+      window.onFinish.push(function() {
+        setupLights();
+
+        arrow = new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(20, 0, 0), 20);
+        scene.add(arrow);
+        arrow.add(new THREE.AxisHelper(2));
+
+      });
+    </script>
+  </body>
+</html>
+
+
+
+
